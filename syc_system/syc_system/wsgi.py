@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
 
 import os
 
+from syc_system.settings.base import PROJECT_PROFILE
 from django.core.wsgi import get_wsgi_application
 
-profile = os.environ.get('PROJECT_PROFILE', 'develop')
+profile = PROJECT_PROFILE
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'syc_system.settings.%s' % profile)
 
 application = get_wsgi_application()

@@ -3,9 +3,11 @@
 import os
 import sys
 
+from syc_system.settings.base import PROJECT_PROFILE
+
 
 def main():
-    profile = os.environ.get('PROJECT_PROFILE', 'develop')
+    profile = PROJECT_PROFILE
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'syc_system.settings.%s' % profile)
     try:
         from django.core.management import execute_from_command_line

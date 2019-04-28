@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# 定义运行模式
+PROJECT_PROFILE = 'develop'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,12 +28,21 @@ SECRET_KEY = 'aqi+d#23us@pj$nnioj!ashf55g4!+&&-z#a46#5xo_it&ki$e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 自定义app
+    'basic_info',
+    'plan',
+    'purchase',
+    'report',
+    'storage',
+    'system_maintain',
+
+    # 系统app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
