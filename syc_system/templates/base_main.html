@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/basemain.css' %}">
+    {% block ex_css %}{% endblock %}
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header navbar-">
+
+            <a class="navbar-brand" href="#"><img src="{% static 'icon/logo.jpg' %}" alt="" width="40px" height="40px"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<section id="left-navbar-section">
+    <div id="left-navbar-div">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="{{ plan_title }}"><a href="#">生产管理</a></li>
+                    <li class="{{ purchase_title }}"><a href="{% url 'purchase_index' %}">销售管理</a></li>
+                    <li class="{{ storage_title }}"><a href="{% url 'storage_index' %}">库存管理</a></li>
+                    <li class="{{ report_title }}"><a href="{% url 'report_index' %}">报表管理</a></li>
+                    <li class="{{ basic_info_title }}"><a href="{% url 'basic_info_index' %}">基本资料</a></li>
+                    <li class="{{ system_maintain_title }}"><a href="{% url 'system_maintain_index' %}">系统维护</a></li>
+                </ul>
+
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div id="content-div">
+            {% block body_header %}{% endblock %}
+            {% block body_body %}{% endblock %}
+            {% block body_footer %}{% endblock %}
+    </div>
+
+</section>
+
+
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/confirm_action.js' %}"></script>
+{% block ec_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block body_header %}
+
+    <div class="container-fluid">
+        <div class="row function_list">
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">创建订单</h3>
+                </a>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">客户退货</h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="row function_list">
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">订单管理</h3>
+                </a>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">收款</h3>
+                </a>
+            </div>
+        </div>
+
+{% endblock %}

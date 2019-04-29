@@ -15,8 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from purchase import views as purchase_views
+from storage import views as storage_views
+from report import views as report_views
+from basic_info import views as basic_info_views
+from system_maintain import views as system_maintain_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(r'admin/', admin.site.urls),
+    path(r'', purchase_views.show_purchase_index),
+    path(r'purchase_index/', purchase_views.ShowPurchaseIndex.as_view(), name='purchase_index'),
+
+    path(r'storage_index/', storage_views.ShowStorageIndex.as_view(), name='storage_index'),
+
+    path(r'report_index/', report_views.ShowReportIndex.as_view(), name='report_index'),
+
+    path(r'basic_info_index/', basic_info_views.ShowBasicInfoIndex.as_view(), name='basic_info_index'),
+
+    path(r'system_maintain_index/', system_maintain_views.ShowSystemMaintainIndex.as_view(),
+         name='system_maintain_index'),
+
 
 ]

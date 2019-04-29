@@ -1,0 +1,31 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block body_header %}
+
+    <div class="container-fluid">
+        <div class="row function_list">
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">产品信息</h3>
+                </a>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">客户信息</h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="row function_list">
+            <div class="col-xs-3 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img class="img-circle" src="{% static 'icon/icon.jpg' %}">
+                    <h3 align="center">用户资料</h3>
+                </a>
+            </div>
+        </div>
+
+{% endblock %}
