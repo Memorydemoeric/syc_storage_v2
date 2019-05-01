@@ -1,0 +1,96 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+
+
+{% block ex_css %}
+    <link rel="stylesheet" href="{% static 'css/basic_info/customer_info.css' %}">
+{% endblock %}
+
+
+
+{% block ex_js %}
+    <script src="{% static 'js/basic_info/customer_info.js' %}"></script>
+{% endblock %}
+
+
+
+{% block body_header %}
+    <div class="container-fluid" id="customer_info_content_div">
+        <div id="customer_info_content_inner_div">
+            <div class="row">
+                <div class="col-md-11 col-xs-10">
+                    <form class="form-inline" method="get" action="{% url 'customer_info' %}">
+                        <div class="form-group">
+                            {{ search_condition }}
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit" id="search_btn">查询</button>
+                            <button class="btn btn-primary" type="button" id="add_btn">添加</button>
+                            <button class="btn btn-primary" type="button" id="upload_btn"
+                                    data-fileURL="{% url 'upload_customer_info' %}">导入
+                            </button>
+                        </div>
+                    </form>
+                    <form id="upload_file_form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ upload_file }}
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="row table_head">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th width="100px">地区</th>
+                        <th width="100px">姓名</th>
+                        <th width="130px">联系电话</th>
+                        <th width="130px" class="pre_hidden">座机</th>
+                        <th width="400px" class="pre_hidden">地址</th>
+                        <th width="80px">折扣%</th>
+                        <th width="150px">操作</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="row table_body">
+                <table class="table table-striped">
+                    <tbody>
+
+                    {% for foo in customer_infos %}
+                        <tr>
+                            <td></td>
+                            <td width="100px">{{ foo.location }}</td>
+                            <td width="100px">{{ foo.name }}</td>
+                            <td width="130px">{{ foo.mobilephones }}</td>
+                            <td width="130px" class="pre_hidden">{{ foo.phone }}</td>
+                            <td width="400px" class="pre_hidden">{{ foo.address }}</td>
+                            <td width="80px">{{ foo.default_rebate }}</td>
+                            <td width="150px">操作</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block body_body %}
+
+{% endblock %}
+
+
+
+{% block body_footer %}
+
+{% endblock %}

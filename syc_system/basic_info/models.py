@@ -16,6 +16,10 @@ class CustomerInfo(models.Model):
         db_table = 'syc_customer_info'
         verbose_name = verbose_name_plural = '客户信息'
 
+    @classmethod
+    def get_all_customer_info(cls):
+        return cls.objects.filter(is_delete=False)
+
 
 class CustomerRank(models.Model):
     order_count = models.IntegerField(default=0, verbose_name='订单数')
@@ -25,7 +29,7 @@ class CustomerRank(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     modify_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
     is_delete = models.BooleanField(default=True, verbose_name='是否删除')
-    customer_info = models.ForeignKey(CustomerInfo, on_delete=models.CASCADE, verbose_name='客户信息')
+    customer_info = models.OneToOneField(CustomerInfo, on_delete=models.CASCADE, verbose_name='客户信息')
 
     class Meta:
         db_table = 'syc_customer_rank'

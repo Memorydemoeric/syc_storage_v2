@@ -1,5 +1,9 @@
+th, td {
+    text-align: center;
+}
+
 body {
-    min-width: 700px;
+    min-width: 720px;
 }
 
 .navbar-brand {
@@ -15,7 +19,7 @@ body {
 }
 
 #left-navbar-section ul li {
-    margin: 5rem auto;
+    margin: 6.5rem auto;
     font-size: 2.3rem;
     /*font-weight: 600;*/
     text-align: center;

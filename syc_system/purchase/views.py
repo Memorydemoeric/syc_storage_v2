@@ -15,3 +15,7 @@ class ShowPurchaseIndex(PurchaseBaseView):
     def get(self, request):
         self.data['title'] = '销售管理'
         return render(request, 'purchase_index.html', self.data)
+
+
+class CreatePurchaseOrder(object):
+    pass

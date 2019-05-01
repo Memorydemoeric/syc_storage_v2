@@ -23,14 +23,23 @@ from system_maintain import views as system_maintain_views
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
+
+
     path(r'', purchase_views.show_purchase_index),
     path(r'purchase_index/', purchase_views.ShowPurchaseIndex.as_view(), name='purchase_index'),
+    # path(r'create_purchase_order/', purchase_views.CreatePurchaseOrder.as_view(), name='create_purchase_order'),
+
 
     path(r'storage_index/', storage_views.ShowStorageIndex.as_view(), name='storage_index'),
 
+
     path(r'report_index/', report_views.ShowReportIndex.as_view(), name='report_index'),
 
+
     path(r'basic_info_index/', basic_info_views.ShowBasicInfoIndex.as_view(), name='basic_info_index'),
+    path(r'basic_info/customer_info/', basic_info_views.ShowCustomerInfo.as_view(), name='customer_info'),
+    path(r'basic_info/upload_customer_info/', basic_info_views.UploadCustomerInfo.as_view(), name='upload_customer_info'),
+
 
     path(r'system_maintain_index/', system_maintain_views.ShowSystemMaintainIndex.as_view(),
          name='system_maintain_index'),

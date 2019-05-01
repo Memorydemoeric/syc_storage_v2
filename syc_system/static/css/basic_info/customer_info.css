@@ -1,0 +1,26 @@
+#search_condition {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+label {
+    margin: 0.5rem 1rem 0.5rem 0;
+}
+
+form .btn {
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+form {
+    float: right;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+
+.table_body {
+    height: 60rem;
+    overflow-y: scroll;
+}
+

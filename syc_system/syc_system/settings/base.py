@@ -131,3 +131,7 @@ STATIC_ROOT = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+BAK_FILE_PATHS = {
+    'BASIC_INFO_CUSTOMER_INFO': os.path.join(BASE_DIR, 'file_bak', 'basic_info', 'customer_info')
+}
