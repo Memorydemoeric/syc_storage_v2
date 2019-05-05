@@ -44,6 +44,7 @@
                 btnok: "确定",
                 btncl: "取消",
                 width: 200,
+                height: 200,
                 auto: false
             }, options || {});
             var modalId = generateId();
@@ -181,6 +182,10 @@
                 target.on('hide.bs.modal', function (e) {
                     $('body').find(target).remove();
                 });
+
+                // 修改弹框尺寸
+                target.find('.modal-content').css('width', options.width);
+                target.find('.modal-content').css('height', options.height);
             }
         };
     }();

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/basic_info/add_or_upgrate_customer_info.css' %}">
+</head>
+<body>
+
+
+<form action="{{ action }}" class="form-inline" method="post" id="submit_customer_info_form">
+    {% csrf_token %}
+    <br><br>
+    <div class="form-group col-md-12 form_content">
+        <label for="id_location">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</label>
+        {{ input_forms.location }}
+    </div>
+    <div class="form-group col-md-12 form_content">
+        <label for="id_name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+        {{ input_forms.name }}
+    </div>
+    <div class="form-group col-md-12 form_content">
+        <label for="id_mobilephones">联系方式：</label>
+        {{ input_forms.mobilephones }}
+    </div>
+    <div class="form-group col-md-12 form_content">
+        <label for="id_phone">座&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</label>
+        {{ input_forms.phone }}
+    </div>
+    <div class="form-group col-md-12 form_content">
+        <label for="id_address" style="vertical-align: top">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</label>
+        {{ input_forms.address }}
+    </div>
+    <div class="form-group col-md-12 form_content">
+        <label for="id_default_rebate">折&nbsp;&nbsp;&nbsp;&nbsp;扣%：</label>
+        {{ input_forms.default_rebate }}
+    </div>
+    <br>
+    <input type="text" name="cust_id" style="display: none" value="{{ cust_id }}">
+    <div class="form-group col-md-12" id="submit_customer_info_btn">
+        <button type="submit" class="btn btn-primary">提交</button>
+        <button type="reset" class="btn btn-primary">重置</button>
+    </div>
+</form>
+
+
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/confirm_action.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/basic_info/add_or_upgrate_customer_info.js' %}"></script>
+</body>
+</html>

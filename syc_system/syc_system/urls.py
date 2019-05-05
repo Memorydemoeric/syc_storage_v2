@@ -39,6 +39,9 @@ urlpatterns = [
     path(r'basic_info_index/', basic_info_views.ShowBasicInfoIndex.as_view(), name='basic_info_index'),
     path(r'basic_info/customer_info/', basic_info_views.ShowCustomerInfo.as_view(), name='customer_info'),
     path(r'basic_info/upload_customer_info/', basic_info_views.UploadCustomerInfo.as_view(), name='upload_customer_info'),
+    path(r'basic_info/add_customer_info/', basic_info_views.AddCustomerInfo.as_view(), name='add_customer_info'),
+    path(r'basic_info/modify_customer_info/', basic_info_views.ModifyCustomerInfo.as_view(), name='modify_customer_info'),
+    path(r'basic_info/delete_customer_info/', basic_info_views.DeleteCustomerInfo.as_view(), name='delete_customer_info'),
 
 
     path(r'system_maintain_index/', system_maintain_views.ShowSystemMaintainIndex.as_view(),

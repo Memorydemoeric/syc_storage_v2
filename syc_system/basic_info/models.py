@@ -20,6 +20,33 @@ class CustomerInfo(models.Model):
     def get_all_customer_info(cls):
         return cls.objects.filter(is_delete=False)
 
+    @classmethod
+    def get_appointed_customer_info(cls, condition):
+        if condition:
+            customer_list = [i for i in cls.get_all_customer_info() if condition in (i.location + i.name)]
+            if customer_list:
+                return customer_list
+        return cls.get_all_customer_info()
+
+    @classmethod
+    def get_customer_info(cls, cust_id):
+        try:
+            customer_info = cls.objects.get(pk=int(cust_id))
+        except Exception as e:
+            print(e)
+            return None
+        else:
+            return customer_info
+
+    @classmethod
+    def delete_customer_info(cls, cust_id):
+        customer_info = cls.get_customer_info(cust_id)
+        if customer_info:
+            customer_info.is_delete = True
+            customer_info.save()
+        else:
+            print('客户不存在...')
+
 
 class CustomerRank(models.Model):
     order_count = models.IntegerField(default=0, verbose_name='订单数')

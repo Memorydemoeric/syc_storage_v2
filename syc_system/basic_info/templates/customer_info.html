@@ -16,23 +16,26 @@
 
 
 {% block body_header %}
+    <input id="offset" type="text" value="{{ offset }}" style="display: none;">
     <div class="container-fluid" id="customer_info_content_div">
         <div id="customer_info_content_inner_div">
             <div class="row">
                 <div class="col-md-11 col-xs-10">
-                    <form class="form-inline" method="get" action="{% url 'customer_info' %}">
+                    <form class="form-inline" method="get" action="{% url 'customer_info' %}" id="customer_search_form">
                         <div class="form-group">
                             {{ search_condition }}
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit" id="search_btn">查询</button>
-                            <button class="btn btn-primary" type="button" id="add_btn">添加</button>
+                            <button class="btn btn-primary" type="button" id="add_btn"
+                                    data-addCustomerInfoURL="{% url 'add_customer_info' %}">添加
+                            </button>
                             <button class="btn btn-primary" type="button" id="upload_btn"
                                     data-fileURL="{% url 'upload_customer_info' %}">导入
                             </button>
                         </div>
                     </form>
-                    <form id="upload_file_form" enctype="multipart/form-data">
+                    <form id="upload_file_form" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ upload_file }}
                     </form>
@@ -70,7 +73,11 @@
                             <td width="130px" class="pre_hidden">{{ foo.phone }}</td>
                             <td width="400px" class="pre_hidden">{{ foo.address }}</td>
                             <td width="80px">{{ foo.default_rebate }}</td>
-                            <td width="150px">操作</td>
+                            <td width="150px" cust_id="{{ foo.id }}"
+                                data-modifyCustomerInfoURL="{% url 'modify_customer_info' %}"
+                                data-deleteCustomerInfoURL="{% url 'delete_customer_info' %}"><a
+                                    class="modify_customer_info" href="">修改</a> | <a class="delete_customer_info"
+                                                                                     href="">删除</a></td>
                             <td></td>
                         </tr>
                     {% endfor %}
